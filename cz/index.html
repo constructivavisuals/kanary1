@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Island Village Heights 522A — Pokyny pro hosty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Warm sand palette */
+    --bg:          oklch(0.985 0.006 80);
+    --bg-card:     oklch(0.975 0.012 80);
+    --bg-soft:     oklch(0.955 0.018 75);
+    --bg-accent:   oklch(0.93  0.035 70);
+    --line:        oklch(0.89  0.015 75);
+    --line-soft:   oklch(0.93  0.012 75);
+    --ink:         oklch(0.24  0.012 60);
+    --ink-mute:    oklch(0.48  0.015 65);
+    --ink-soft:    oklch(0.60  0.015 65);
+    --accent:      oklch(0.62  0.11  55);   /* terracotta */
+    --accent-soft: oklch(0.90  0.04  60);
+    --accent-deep: oklch(0.48  0.11  50);
+    --ok:          oklch(0.62  0.09 150);
+    --warn-bg:     oklch(0.96  0.03  85);
+    --warn-line:   oklch(0.85  0.06  75);
+
+    --radius:  14px;
+    --radius-lg: 20px;
+    --radius-sm: 8px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 32px 120px;
+  }
+
+  /* ---------- typography ---------- */
+  h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.02em; }
+  h1 { font-size: 44px; line-height: 1.05; font-weight: 500; }
+  h2 { font-size: 26px; line-height: 1.15; font-weight: 500; }
+  h3 { font-size: 18px; line-height: 1.25; font-weight: 500; }
+  h4 { font-size: 14px; line-height: 1.3; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+  p { margin: 0 0 12px; }
+  a { color: var(--accent-deep); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--accent-deep) 25%, transparent); transition: border-color .15s; }
+  a:hover { border-bottom-color: var(--accent-deep); }
+  .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-feature-settings: "zero"; }
+
+  /* ---------- top header ---------- */
+  .top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 36px;
+  }
+  .top .brand {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .top .apt {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-mute);
+  }
+
+  /* ---------- hero / welcome ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+  .welcome {
+    background: var(--bg-accent);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 260px;
+  }
+  .welcome .eyebrow {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 18px;
+  }
+  .welcome h1 { margin-bottom: 16px; }
+  .welcome p { color: var(--ink-mute); font-size: 15px; max-width: 38ch; }
+  .welcome .signature {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .signature .avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, oklch(0.82 0.06 70), oklch(0.72 0.08 45));
+    display: grid; place-items: center;
+    color: white; font-weight: 500; font-size: 13px;
+  }
+  .signature .who { color: var(--ink); }
+  .signature .who small { display:block; color: var(--ink-mute); font-size: 12px; }
+
+  .photo {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line-soft);
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    background-image:
+      repeating-linear-gradient(135deg,
+        transparent 0 18px,
+        color-mix(in oklch, var(--line) 40%, transparent) 18px 19px);
+  }
+  .photo .tag {
+    position: absolute;
+    left: 16px; bottom: 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-mute);
+    padding: 6px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ---------- priority blocks row 1 ---------- */
+  .prio-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .card.accent {
+    background: var(--bg-accent);
+    border-color: color-mix(in oklch, var(--accent) 25%, transparent);
+  }
+
+  /* Wi-Fi */
+  .wifi {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .wifi .icon-box {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--bg);
+    display: grid; place-items: center;
+    color: var(--accent-deep);
+  }
+  .wifi-fields { display: grid; gap: 10px; margin-top: 14px; }
+  .field {
+    display: grid;
+    grid-template-columns: 54px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+  }
+  .field .label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-mute);
+  }
+  .field .value {
+    font-family: 'Geist Mono', monospace;
+    font-size: 14px;
+    color: var(--ink);
+    user-select: all;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  .copy-btn {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-mute);
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .copy-btn:hover { color: var(--ink); border-color: var(--ink-mute); }
+  .copy-btn.copied { background: var(--accent); color: white; border-color: var(--accent); }
+
+  /* Contact */
+  .contact .people {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .person {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+  }
+  .person .avatar { width: 32px; height: 32px; }
+  .person .name { font-size: 14px; font-weight: 500; }
+  .person .num { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--ink-mute); }
+  .wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 7px 11px;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .wa-btn:hover { background: var(--accent-deep); border: none; }
+  .email-row {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: var(--bg);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .email-row a { color: var(--accent-deep); border-bottom: none; }
+  .email-row .mono { color: var(--ink); }
+
+  /* ---------- emergency numbers ---------- */
+  .emergency {
+    margin-bottom: 56px;
+  }
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .emg {
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    padding: 14px 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .emg .lbl { font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Geist Mono', monospace; }
+  .emg .num { font-family: 'Geist Mono', monospace; font-size: 20px; font-weight: 500; color: var(--ink); margin-top: 4px; }
+  .emg .sub { font-size: 12px; color: var(--ink-mute); }
+  .emg.big { grid-column: span 1; background: oklch(0.58 0.14 30); color: white; border-color: transparent; }
+  .emg.big .lbl { color: oklch(0.95 0.04 30); }
+  .emg.big .num { color: white; font-size: 28px; }
+  .emg.big .sub { color: oklch(0.95 0.03 30); }
+
+  .tel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .tel-row {
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .tel-row .name { font-size: 14px; }
+  .tel-row .name small { display: block; color: var(--ink-mute); font-size: 11px; }
+  .tel-row .num { font-family: 'Geist Mono', monospace; font-size: 14px; color: var(--accent-deep); white-space: nowrap; }
+
+  /* ---------- section block ---------- */
+  section { margin-bottom: 56px; }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head .idx {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .section-head h2 { flex: 1; }
+  .section-head .ico {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--bg-accent);
+    color: var(--accent-deep);
+    display: grid; place-items: center;
+  }
+
+  /* ---------- rules ---------- */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .rule {
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rule .ico {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--bg-soft);
+    color: var(--accent-deep);
+    display: grid; place-items: center;
+  }
+  .rule h3 { font-size: 16px; }
+  .rule p { font-size: 14px; color: var(--ink-mute); margin: 0; }
+  .rule .why {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .rule.wide { grid-column: 1 / -1; }
+  .rule.soft { background: var(--warn-bg); border-color: var(--warn-line); }
+
+  /* ---------- key-value list ---------- */
+  .kv { display: grid; gap: 10px; }
+  .kv .row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+    align-items: baseline;
+  }
+  .kv .row:last-child { border-bottom: none; }
+  .kv .row .k {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    padding-top: 2px;
+  }
+  .kv .row .v { font-size: 14.5px; color: var(--ink); }
+  .kv .row .v p { margin-bottom: 6px; }
+
+  /* ---------- steps ---------- */
+  .steps { display: grid; gap: 12px; }
+  .step {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 14px;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+  }
+  .step .n {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: grid; place-items: center;
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .step h3 { font-size: 15px; margin-bottom: 4px; }
+  .step p { font-size: 14px; color: var(--ink-mute); margin: 0 0 4px; }
+
+  /* ---------- amenities ---------- */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .chip {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    background: var(--bg-soft);
+    color: var(--ink-mute);
+    border: 1px solid var(--line-soft);
+    font-family: 'Geist Mono', monospace;
+  }
+
+  /* ---------- nearby ---------- */
+  .nearby-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .nearby-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+  }
+  .nearby-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .nearby-card h3 .ico {
+    color: var(--accent-deep);
+    display: grid; place-items: center;
+  }
+  .link-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: grid;
+    gap: 4px;
+  }
+  .link-list a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: none;
+    gap: 10px;
+  }
+  .link-list a:hover { color: var(--accent-deep); }
+  .link-list a .dist {
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .link-list a .arrow { color: var(--ink-soft); transition: transform .15s; }
+  .link-list a:hover .arrow { transform: translateX(2px); color: var(--accent-deep); }
+  .link-list li + li a { border-top: 1px solid var(--line-soft); }
+  .link-list .sub { font-size: 11px; color: var(--ink-soft); font-family: 'Geist Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ---------- trash / waste info ---------- */
+  .split-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* ---------- footer ---------- */
+  .foot {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 760px) {
+    .page { padding: 32px 20px 80px; }
+    h1 { font-size: 32px; }
+    .hero, .prio-grid, .rules-grid, .nearby-grid, .split-2, .tel-grid { grid-template-columns: 1fr; }
+    .emergency-grid { grid-template-columns: repeat(2, 1fr); }
+    .kv .row { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  /* copied toast */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 100px;
+    opacity: 0;
+    transition: all .2s;
+    pointer-events: none;
+    font-family: 'Geist Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+
+  /* ---------- language switch ---------- */
+  .lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 6px 12px;
+    z-index: 10;
+  }
+  .lang-link {
+    color: var(--ink-mute);
+    border-bottom: none;
+    padding: 2px 4px;
+    transition: color .15s;
+  }
+  .lang-link:hover { color: var(--ink); }
+  .lang-link.active {
+    color: var(--accent-deep);
+    pointer-events: none;
+  }
+  .lang-sep { color: var(--ink-soft); font-size: 10px; }
+  .page { position: relative; }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+  
+  <div class="lang-switch" role="navigation" aria-label="Language">
+    <a href="#" class="lang-link active" aria-current="page">CZ</a>
+    <span class="lang-sep">·</span>
+    <a href="/en" class="lang-link " aria-current="false">EN</a>
+    <span class="lang-sep">·</span>
+    <a href="/de" class="lang-link " aria-current="false">DE</a>
+  </div>
+
+  <!-- TOP -->
+  <header class="top">
+    <div class="brand">Island Village Heights · Costa Adeje</div>
+    <div class="apt">Apartment 522 A</div>
+  </header>
+
+  <!-- HERO / WELCOME -->
+  <div class="hero">
+    <div class="welcome">
+      <div>
+        <div class="eyebrow">Těšíme se na vás na Tenerife</div>
+        <h1>Moc se na vás<br>těšíme!</h1>
+        <p>Tento průvodce vás provede vším potřebným pro váš nadcházející pobyt. Kdybyste měli před příjezdem nebo během pobytu jakékoli otázky, jsme vám kdykoliv k dispozici na telefonu nebo WhatsAppu.</p>
+      </div>
+      <div class="signature">
+        <div class="avatar">H&amp;M</div>
+        <div class="who">
+          Helena &amp; Michal
+          <small>Majitelé apartmánu</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo" style="background-image: url('/assets/apartment-hero.jpg'); background-size: cover; background-position: center;">
+    </div>
+  </div>
+
+  <!-- PRIORITY: WIFI + CONTACT -->
+  <div class="prio-grid">
+
+    <!-- WIFI -->
+    <div class="card accent wifi">
+      <div class="icon-box">
+        <!-- wifi icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 8.5a15 15 0 0 1 20 0"/>
+          <path d="M5 12a11 11 0 0 1 14 0"/>
+          <path d="M8.5 15.5a6 6 0 0 1 7 0"/>
+          <circle cx="12" cy="19" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+      <div>
+        <h4>Wi-Fi</h4>
+        <h3 style="margin-top:4px">Připojte se k internetu</h3>
+        <div class="wifi-fields">
+          <div class="field">
+            <span class="label">Síť</span>
+            <span class="value" id="wifi-ssid">MIWIFI_uEEt</span>
+            <button class="copy-btn" data-copy="#wifi-ssid">Kopírovat</button>
+          </div>
+          <div class="field">
+            <span class="label">Heslo</span>
+            <span class="value" id="wifi-pw">FvjfYfcE</span>
+            <button class="copy-btn" data-copy="#wifi-pw">Kopírovat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="card contact">
+      <h4>Kontakt</h4>
+      <h3 style="margin-top:4px">Helena &amp; Michal</h3>
+      <p style="font-size:13px; color: var(--ink-mute); margin-top: 6px;">Kdykoliv se ozvěte — nejrychleji na WhatsAppu.</p>
+
+      <div class="people">
+        <div class="person">
+          <div class="avatar" style="background: linear-gradient(135deg, oklch(0.85 0.06 80), oklch(0.70 0.09 45));">H</div>
+          <div>
+            <div class="name">Helena</div>
+            <div class="num">+420 739 532 093</div>
+          </div>
+          <a class="wa-btn" href="https://wa.me/420739532093" target="_blank" rel="noopener">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.4 15.4L2 22l4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+
+        <div class="person">
+          <div class="avatar" style="background: linear-gradient(135deg, oklch(0.82 0.05 60), oklch(0.65 0.09 35));">M</div>
+          <div>
+            <div class="name">Michal</div>
+            <div class="num">+420 602 395 204</div>
+          </div>
+          <a class="wa-btn" href="https://wa.me/420602395204" target="_blank" rel="noopener">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-1 1.1-.2.2-.4.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.4 15.4L2 22l4.8-1.3A10 10 0 1 0 12 2z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="email-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="https://maps.app.goo.gl/MtZPX1zbSrdRYrV68" target="_blank" rel="noopener">Island Village Heights — Calle Italia, Costa Adeje</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECK-IN -->
+  <section>
+    <div class="section-head">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <span class="idx">01</span>
+      <h2>Check-in</h2>
+    </div>
+
+    <h3 style="margin-bottom: 14px; color: var(--ink-mute); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Geist Mono', monospace;">Příjezd — samoobslužný ve 2 krocích</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <div>
+          <h3>Klíč od hlavního vchodu komplexu</h3>
+          <p>Z chodníku pod balkonem apartmánu uvidíte bílou krabičku s ještěrkou. Zavolejte nám — na náš pokyn ji dálkově otevřeme a vypadne vám z ní box s klíčem. Po použití ho prosím vraťte zpět.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div>
+          <h3>Apartmán č. 522 A</h3>
+          <p>Na zárubni dveří je kódový zámek — kód vám pošleme před příjezdem. Uvnitř najdete všechny klíče (bezpečnostní dveře, horní a dolní zámek, vchod do komplexu / bazén / popelnice). Druhá sada klíčů je v apartmánu pro vaše pohodlí.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLEX -->
+  <section>
+    <div class="section-head">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-4 7 4v12"/><path d="M10 20v-6h4v6"/></svg>
+      </div>
+      <span class="idx">02</span>
+      <h2>Komplex &amp; bazén</h2>
+    </div>
+
+    <div class="kv card" style="padding: 8px 24px;">
+      <div class="row">
+        <div class="k">Vchody</div>
+        <div class="v">Komplex má 4 vchody — hlavní, 2 boční a horní. Jediný univerzální klíč funguje pro všechny, pro dveře k bazénu, toalety u bazénu a pro popelnice na směs naproti přes ulici.</div>
+      </div>
+      <div class="row">
+        <div class="k">Odpadky</div>
+        <div class="v"><strong>Směsný odpad:</strong> naproti přes ulici (zelená brána před Malibu Park Hotelem). <strong>Tříděný odpad:</strong> hned naproti. Prosíme, nenechávejte jídlo na terasé — přitahuje hmyz.</div>
+      </div>
+      <div class="row">
+        <div class="k">Pitná voda</div>
+        <div class="v">Filtrovaná voda je k dispozici v přízemí budovy za <span class="mono">1 € / 5 l</span>. Prosíme, do spotřebičů (kávovar, konvice) používejte výhradně filtrovanou vodu.</div>
+      </div>
+      <div class="row">
+        <div class="k">Bazén</div>
+        <div class="v">Na střeše komplexu. K dispozici jsou lehátka, slunečníky a toalety pro hosty. Dostanete se tam schodištěm, výtahem (+ pár schodů) nebo bezbariérovým bočním vchodem.</div>
+      </div>
+      <div class="row">
+        <div class="k">Noční klid</div>
+        <div class="v">Od <strong>23:00 do 9:00</strong> prosíme o klid — náš komplex je rodinný a tichý. Oslavy a večírky bohužel nejsou možné. Děkujeme, že respektujete ostatní hosty a sousedy. 🙏</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY + KEY NUMBERS -->
+  <section class="emergency">
+    <div class="section-head">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <span class="idx">03</span>
+      <h2>Důležitá čísla</h2>
+    </div>
+
+    <div class="emergency-grid">
+      <div class="emg big">
+        <span class="lbl">SOS — vše</span>
+        <span class="num">112</span>
+        <span class="sub">tísňová linka</span>
+      </div>
+      <div class="emg">
+        <span class="lbl">Policie</span>
+        <span class="num">091</span>
+        <span class="sub">Policía Nacional</span>
+      </div>
+      <div class="emg">
+        <span class="lbl">Četnictvo</span>
+        <span class="num">062</span>
+        <span class="sub">Guardia Civil</span>
+      </div>
+      <div class="emg">
+        <span class="lbl">Záchranka</span>
+        <span class="num">061</span>
+        <span class="sub">Ambulance</span>
+      </div>
+      <div class="emg">
+        <span class="lbl">Hasiči</span>
+        <span class="num">080</span>
+        <span class="sub">Bomberos</span>
+      </div>
+    </div>
+
+    <div class="tel-grid" style="margin-top: 20px;">
+      <div class="tel-row">
+        <div class="name">Taxi Costa Adeje<small>24 h servis · taxiadeje.com</small></div>
+        <a class="num" href="tel:+34922979293">922 979 293</a>
+      </div>
+      <div class="tel-row">
+        <div class="name">Hospital Las Américas<small>nejbližší nemocnice</small></div>
+        <a class="num" href="tel:+34922750022">922 750 022</a>
+      </div>
+      <div class="tel-row">
+        <div class="name">Letiště TFS (jih)<small>Reina Sofía</small></div>
+        <a class="num" href="tel:+34922759000">922 759 000</a>
+      </div>
+      <div class="tel-row">
+        <div class="name">Autobusy TITSA<small>veřejná doprava</small></div>
+        <a class="num" href="tel:+34922531300">922 531 300</a>
+      </div>
+    </div>
+    <p style="font-size: 12px; color: var(--ink-soft); margin-top: 12px;">Předvolba pro Španělsko: <span class="mono">+34</span>.</p>
+  </section>
+
+  <!-- TRANSPORT -->
+  <section>
+    <div class="section-head">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l1-4h12l1 4h2"/><path d="M5 17a2 2 0 1 0 4 0"/><path d="M15 17a2 2 0 1 0 4 0"/><path d="M6 13V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6"/></svg>
+      </div>
+      <span class="idx">04</span>
+      <h2>Jak se pohybovat po Tenerife</h2>
+    </div>
+
+    <div class="kv card" style="padding: 8px 24px;">
+      <div class="row">
+        <div class="k">Taxi / auto</div>
+        <div class="v">Taxík i půjčovnu aut najdete přímo na letišti. U apartmánu je dostatek parkovacích míst na ulici zdarma. <strong>Neparkujte prosím na chodníku</strong> — hrozí odtažení vozidla a pokuta.</div>
+      </div>
+      <div class="row">
+        <div class="k">Autobus</div>
+        <div class="v">Zastávka <span class="mono">Av. de los Pueblos</span> je 15 min pěšky. Linky TITSA spolehlivě fungují po celém ostrově včetně letiště a hlavního města. Velké zavazadlo můžete zdarma dát do zavazadlového prostoru. Užitečná aplikace: <a class="mono" href="https://maps.google.com/" target="_blank" rel="noopener">Google Maps</a>.</div>
+      </div>
+      <div class="row">
+        <div class="k">Kola, koloběžky, skútry</div>
+        <div class="v">V okolí najdete několik půjčoven kol, motorek i elektrických vozítek. Před komplexem je stanice sdílených elektrokoloběžek.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEARBY -->
+  <section>
+    <div class="section-head">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <span class="idx">05</span>
+      <h2>V okolí — naše tipy</h2>
+    </div>
+
+    <p style="color: var(--ink-mute); font-size: 14px; max-width: 60ch; margin-bottom: 24px;">Kliknutím na kterýkoliv tip se otevře místo přímo v Mapách Google.</p>
+
+    <div class="nearby-grid">
+
+      <div class="nearby-card">
+        <h3>
+          <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18l-2 9H5z"/><path d="m5 12 1 8h12l1-8"/></svg></span>
+          Obchody &amp; supermarkety
+        </h3>
+        <ul class="link-list">
+          <li><a href="https://www.google.com/maps/search/Mercadona+Costa+Adeje" target="_blank" rel="noopener"><span>Mercadona <span class="sub">španělský</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Hiperdino+Costa+Adeje" target="_blank" rel="noopener"><span>Hiperdino <span class="sub">kanárský</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/SuperDino+Malibu+Avenida+Austria+Costa+Adeje" target="_blank" rel="noopener"><span>SuperDino Malibu</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Dialprix+Costa+Adeje" target="_blank" rel="noopener"><span>Dialprix</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Overseas+British+supermarket+Costa+Adeje" target="_blank" rel="noopener"><span>Overseas <span class="sub">britský</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Farm+fruit+vegetables+Costa+Adeje" target="_blank" rel="noopener"><span>Farma <span class="sub">ovoce, zelenina, sýry</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Siam+Mall+Costa+Adeje" target="_blank" rel="noopener"><span>Siam Mall</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Centro+Comercial+X-Sur+Costa+Adeje" target="_blank" rel="noopener"><span>C.C. X-Sur</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Plaza+del+Duque+Costa+Adeje" target="_blank" rel="noopener"><span>Plaza del Duque</span><span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <div class="nearby-card">
+        <h3>
+          <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M5 11v4a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-4"/><path d="M12 19v3"/></svg></span>
+          Restaurace &amp; kavárny
+        </h3>
+        <ul class="link-list">
+          <li><a href="https://www.google.com/maps/search/Pal+Choso+Guanchiche+Costa+Adeje" target="_blank" rel="noopener"><span>Pal Choso Guanchiche <span class="sub">kanárská kuchyně</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Roys+Pizza+Indian+Costa+Adeje" target="_blank" rel="noopener"><span>Roy's Pizza &amp; Indian</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/El+Molino+Blanco+Costa+Adeje" target="_blank" rel="noopener"><span>El Molino Blanco</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Craft+Burger+Beer+Bar+Costa+Adeje" target="_blank" rel="noopener"><span>Craft Burger &amp; Beer Bar</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Pizzeria+Kebab+Costa+Adeje" target="_blank" rel="noopener"><span>Pizzeria Kebab</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Hemingways+Cafe+Costa+Adeje" target="_blank" rel="noopener"><span>Hemingway's Café</span><span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <div class="nearby-card">
+        <h3>
+          <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 22c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><circle cx="8" cy="8" r="3"/></svg></span>
+          Pláže
+        </h3>
+        <ul class="link-list">
+          <li><a href="https://www.google.com/maps/search/Playa+La+Pinta+Puerto+Colon" target="_blank" rel="noopener"><span>La Pinta / Puerto Colón</span><span class="dist">950 m</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Bobo+Beach+Costa+Adeje" target="_blank" rel="noopener"><span>Bobo Beach</span><span class="dist">1 km</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Playa+Torviscas" target="_blank" rel="noopener"><span>Playa Torviscas</span><span class="dist">1 km</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Playa+de+Troya+Costa+Adeje" target="_blank" rel="noopener"><span>Playa de Troya</span><span class="dist">1,3 km</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Playa+de+Fanabe" target="_blank" rel="noopener"><span>Playa de Fañabe</span><span class="dist">1,8 km</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Playa+del+Duque" target="_blank" rel="noopener"><span>Playa el Duque</span><span class="dist">2 km</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Playa+del+Camison" target="_blank" rel="noopener"><span>Playa del Camisón</span><span class="dist">4 km</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Playa+Las+Vistas+Los+Cristianos" target="_blank" rel="noopener"><span>Playa las Vistas</span><span class="dist">4 km</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Playa+de+la+Enramada" target="_blank" rel="noopener"><span>Playa de la Enramada</span><span class="dist">4,3 km</span></a></li>
+        </ul>
+      </div>
+
+      <div class="nearby-card">
+        <h3>
+          <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21v-4a5 5 0 0 1 10 0v4"/><path d="M5 21h14"/><circle cx="12" cy="8" r="3"/><path d="M12 5V2"/></svg></span>
+          Beach kluby
+        </h3>
+        <ul class="link-list">
+          <li><a href="https://www.google.com/maps/search/Kaluna+Beach+Club+Costa+Adeje" target="_blank" rel="noopener"><span>Kaluna Beach Club</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Le+Club+Costa+Adeje" target="_blank" rel="noopener"><span>Le Club</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Torviscas+Beach+Club" target="_blank" rel="noopener"><span>Torviscas Beach Club</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Royal+Sunset+Beach+Club+Tenerife" target="_blank" rel="noopener"><span>Royal Sunset Beach Club</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Fiji+Beach+Club+Tenerife" target="_blank" rel="noopener"><span>Fiji Beach Club</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Cocoa+Beach+Club+Tenerife" target="_blank" rel="noopener"><span>Cocoa Beach Club</span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Las+Rocas+Beach+Club+Costa+Adeje+Tenerife" target="_blank" rel="noopener"><span>Las Rocas Beach Club</span><span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <div class="nearby-card" style="grid-column: 1 / -1;">
+        <h3>
+          <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c3-8 7-8 9 0"/><path d="M12 18c2-6 6-6 9 0"/><path d="M3 22h18"/></svg></span>
+          Aquaparky
+        </h3>
+        <ul class="link-list" style="grid-template-columns: 1fr 1fr; display: grid; gap: 0 20px;">
+          <li><a href="https://www.google.com/maps/search/Aqualand+Costa+Adeje" target="_blank" rel="noopener"><span>Aqualand</span><span class="dist">250 m</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Siam+Park+Tenerife" target="_blank" rel="noopener"><span>Siam Park</span><span class="dist">1,5 km</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- APARTMENT -->
+  <section>
+    <div class="section-head">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21V12h6v9"/></svg>
+      </div>
+      <span class="idx">06</span>
+      <h2>V apartmánu</h2>
+    </div>
+
+    <div class="kv card" style="padding: 8px 24px;">
+      <div class="row">
+        <div class="k">Kuchyně</div>
+        <div class="v">
+          <p>K dispozici máte plně vybavenou kuchyň: sporák, troubu, mikrovlnku, kávovar, konvici, toustovač, gril, odšťavňovač, indukční přenosnou plotýnku, paella pánev a kompletní nádobí.</p>
+          <p style="color: var(--ink-mute); font-size: 13px;">Podsvícení v kuchyni zapnete posuvným vypínačem na digestoři.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="k">Ventilátor</div>
+        <div class="v">Zapíná se vypínačem na zdi a potvrzením na dálkovém ovladači. Tlačítkem na ovladači zapnete i světlo.</div>
+      </div>
+      <div class="row">
+        <div class="k">Smart TV</div>
+        <div class="v">Připojíte si vlastní streamovací služby a k dispozici je i aplikace Skylink.</div>
+      </div>
+      <div class="row">
+        <div class="k">Pračka</div>
+        <div class="v">Pračku najdete v koupelně. Prací prostředek je připravený — klidně použijte. 👕</div>
+      </div>
+      <div class="row">
+        <div class="k">Terasa</div>
+        <div class="v">
+          <p>Rostliny se zavlažují automaticky. Lehátka jsou ve skříni.</p>
+          <p><strong>Slunečník</strong> prosím vždy zavřete, když opouštíte apartmán — vítr zde umí překvapit a slunečník by se mohl převrhnout.</p>
+          <p style="color: var(--ink-mute); font-size: 13px;">Bezpečnostní kamera na terase je aktivní pouze mimo pobyt hostů — během vašeho pobytu je automaticky vypnutá a můžete ji navíc zakrýt okenicí.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECK-OUT -->
+  <section>
+    <div class="section-head">
+      <div class="ico">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+      </div>
+      <span class="idx">07</span>
+      <h2>Check-out</h2>
+    </div>
+
+    <div class="kv card" style="padding: 20px 24px;">
+      <div class="row">
+        <div class="k">Spotřebiče</div>
+        <div class="v">Prosíme odpojte z elektřiny (kávovar, rychlovarná konvice…).</div>
+      </div>
+      <div class="row">
+        <div class="k">Odpadky</div>
+        <div class="v">Vyneste prosím před odjezdem.</div>
+      </div>
+      <div class="row">
+        <div class="k">Slunečník &amp; markýza</div>
+        <div class="v">Pokud jste je během pobytu používali, prosíme zavřete slunečník i markýzu — vítr zde umí zesílit a mohlo by dojít k poškození.</div>
+      </div>
+      <div class="row">
+        <div class="k">Klíče</div>
+        <div class="v">Obě sady nechte v apartmánu, dveře za sebou zabouchněte.</div>
+      </div>
+      <div class="row">
+        <div class="k">Něco se rozbilo?</div>
+        <div class="v">Nic se neděje — jen nám to prosím dejte vědět, ať to stihneme spravit pro další hosty. Díky! 🙏</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div>Island Village Heights — Apt. 522 A</div>
+    <div>Hezkou dovolenou · Helena &amp; Michal</div>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast">Zkopírováno</div>
+
+<script>
+  // Copy-to-clipboard
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const target = document.querySelector(btn.dataset.copy);
+      if (!target) return;
+      const text = target.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add('copied');
+        btn.textContent = 'Zkopírováno';
+        showToast('Zkopírováno: ' + text);
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.textContent = 'Kopírovat';
+        }, 1800);
+      } catch (e) {
+        showToast('Nepodařilo se zkopírovat');
+      }
+    });
+  });
+
+  const toast = document.getElementById('toast');
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove('show'), 1600);
+  }
+</script>
+
+
+<!-- Vercel Analytics -->
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+</html>
