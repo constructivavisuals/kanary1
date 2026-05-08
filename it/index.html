@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="cs">
+<html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Island Village Heights 522A — Pokyny pro hosty</title>
+<title>Island Village Heights 522A — Istruzioni per gli ospiti</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -59,6 +59,33 @@
   a { color: var(--accent-deep); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--accent-deep) 25%, transparent); transition: border-color .15s; }
   a:hover { border-bottom-color: var(--accent-deep); }
   .mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-feature-settings: "zero"; }
+
+  /* ---------- language switch ---------- */
+  .lang-switch {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .lang-link {
+    color: var(--ink-mute);
+    text-decoration: none;
+    border-bottom: none;
+    padding: 2px 4px;
+    transition: color .15s;
+  }
+  .lang-link:hover { color: var(--ink); }
+  .lang-link.active {
+    color: var(--accent-deep);
+    font-weight: 500;
+  }
+  .lang-sep { color: var(--ink-soft); font-size: 10px; }
 
   /* ---------- top header ---------- */
   .top {
@@ -551,77 +578,44 @@
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-
-  /* ---------- language switch ---------- */
-  .lang-switch {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: 'Geist Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 100px;
-    padding: 6px 12px;
-    z-index: 10;
-  }
-  .lang-link {
-    color: var(--ink-mute);
-    border-bottom: none;
-    padding: 2px 4px;
-    transition: color .15s;
-  }
-  .lang-link:hover { color: var(--ink); }
-  .lang-link.active {
-    color: var(--accent-deep);
-    pointer-events: none;
-  }
-  .lang-sep { color: var(--ink-soft); font-size: 10px; }
-  .page { position: relative; }
-
 </style>
 </head>
 <body>
 
 <div class="page">
-  
+
   <div class="lang-switch" role="navigation" aria-label="Language">
-    <a href="#" class="lang-link active" aria-current="page">CZ</a>
+    <a href="/cz" class="lang-link " aria-current="false">CZ</a>
     <span class="lang-sep">·</span>
     <a href="/en" class="lang-link " aria-current="false">EN</a>
     <span class="lang-sep">·</span>
-    <a href="/it" class="lang-link " aria-current="false">IT</a>
+    <a href="#" class="lang-link active" aria-current="page">IT</a>
   </div>
 
   <!-- TOP -->
   <header class="top">
     <div class="brand">Island Village Heights · Costa Adeje</div>
-    <div class="apt">Apartment 522 A</div>
+    <div class="apt">Appartamento 522 A</div>
   </header>
 
   <!-- HERO / WELCOME -->
   <div class="hero">
     <div class="welcome">
       <div>
-        <div class="eyebrow">Těšíme se na vás na Tenerife</div>
-        <h1>Moc se na vás<br>těšíme!</h1>
-        <p>Tento průvodce vás provede vším potřebným pro váš nadcházející pobyt. Kdybyste měli před příjezdem nebo během pobytu jakékoli otázky, jsme vám kdykoliv k dispozici na telefonu nebo WhatsAppu.</p>
+        <div class="eyebrow">Non vediamo l’ora di accogliervi a Tenerife</div>
+        <h1>Vi aspettiamo<br>con gioia!</h1>
+        <p>Questa guida vi accompagnerà attraverso tutto ciò che serve per il vostro prossimo soggiorno. Se prima dell’arrivo o durante il soggiorno aveste qualsiasi domanda, siamo sempre a vostra disposizione al telefono o su WhatsApp.</p>
       </div>
       <div class="signature">
         <div class="avatar">H&amp;M</div>
         <div class="who">
           Helena &amp; Michal
-          <small>Majitelé apartmánu</small>
+          <small>Proprietari dell’appartamento</small>
         </div>
       </div>
     </div>
 
-    <div class="photo" style="background-image: url('/assets/apartment-hero.jpg'); background-size: cover; background-position: center;">
+    <div class="photo" style="background-image: url('assets/apartment-hero.jpg'); background-size: cover; background-position: center;">
     </div>
   </div>
 
@@ -641,17 +635,17 @@
       </div>
       <div>
         <h4>Wi-Fi</h4>
-        <h3 style="margin-top:4px">Připojte se k internetu</h3>
+        <h3 style="margin-top:4px">Connettiti a internet</h3>
         <div class="wifi-fields">
           <div class="field">
-            <span class="label">Síť</span>
+            <span class="label">Rete</span>
             <span class="value" id="wifi-ssid">MIWIFI_uEEt</span>
-            <button class="copy-btn" data-copy="#wifi-ssid">Kopírovat</button>
+            <button class="copy-btn" data-copy="#wifi-ssid">Copia</button>
           </div>
           <div class="field">
-            <span class="label">Heslo</span>
+            <span class="label">Password</span>
             <span class="value" id="wifi-pw">FvjfYfcE</span>
-            <button class="copy-btn" data-copy="#wifi-pw">Kopírovat</button>
+            <button class="copy-btn" data-copy="#wifi-pw">Copia</button>
           </div>
         </div>
       </div>
@@ -659,9 +653,9 @@
 
     <!-- CONTACT -->
     <div class="card contact">
-      <h4>Kontakt</h4>
+      <h4>Contatto</h4>
       <h3 style="margin-top:4px">Helena &amp; Michal</h3>
-      <p style="font-size:13px; color: var(--ink-mute); margin-top: 6px;">Kdykoliv se ozvěte — nejrychleji na WhatsAppu.</p>
+      <p style="font-size:13px; color: var(--ink-mute); margin-top: 6px;">Contattateci in qualsiasi momento — il modo più rapido è WhatsApp.</p>
 
       <div class="people">
         <div class="person">
@@ -706,21 +700,21 @@
       <h2>Check-in</h2>
     </div>
 
-    <h3 style="margin-bottom: 14px; color: var(--ink-mute); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Geist Mono', monospace;">Příjezd — samoobslužný ve 2 krocích</h3>
+    <h3 style="margin-bottom: 14px; color: var(--ink-mute); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Geist Mono', monospace;">Arrivo — self check-in in 2 passaggi</h3>
 
     <div class="steps">
       <div class="step">
         <div class="n">1</div>
         <div>
-          <h3>Klíč od hlavního vchodu komplexu</h3>
-          <p>Z chodníku pod balkonem apartmánu uvidíte bílou krabičku s ještěrkou. Zavolejte nám — na náš pokyn ji dálkově otevřeme a vypadne vám z ní box s klíčem. Po použití ho prosím vraťte zpět.</p>
+          <h3>Chiave dell’ingresso principale del complesso</h3>
+          <p>Dal marciapiede sotto il balcone dell’appartamento vedrete una scatoletta bianca con una lucertola. Chiamateci — al nostro comando la apriremo da remoto e ne uscirà la scatola con la chiave. Dopo l’uso, vi preghiamo di rimetterla al suo posto.</p>
         </div>
       </div>
       <div class="step">
         <div class="n">2</div>
         <div>
-          <h3>Apartmán č. 522 A</h3>
-          <p>Na zárubni dveří je kódový zámek — kód vám pošleme před příjezdem. Uvnitř najdete všechny klíče (bezpečnostní dveře, horní a dolní zámek, vchod do komplexu / bazén / popelnice). Druhá sada klíčů je v apartmánu pro vaše pohodlí.</p>
+          <h3>Appartamento n. 522 A</h3>
+          <p>Sullo stipite della porta c’è una serratura a codice — il codice vi sarà inviato prima dell’arrivo. All’interno troverete tutte le chiavi (porta di sicurezza, serratura superiore e inferiore, ingresso del complesso / piscina / rifiuti). Un secondo set di chiavi si trova nell’appartamento per vostra comodità.</p>
         </div>
       </div>
     </div>
@@ -733,29 +727,29 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-4 7 4v12"/><path d="M10 20v-6h4v6"/></svg>
       </div>
       <span class="idx">02</span>
-      <h2>Komplex &amp; bazén</h2>
+      <h2>Complesso &amp; piscina</h2>
     </div>
 
     <div class="kv card" style="padding: 8px 24px;">
       <div class="row">
-        <div class="k">Vchody</div>
-        <div class="v">Komplex má 4 vchody — hlavní, 2 boční a horní. Jediný univerzální klíč funguje pro všechny, pro dveře k bazénu, toalety u bazénu a pro popelnice na směs naproti přes ulici.</div>
+        <div class="k">Ingressi</div>
+        <div class="v">Il complesso ha 4 ingressi — quello principale, 2 laterali e quello superiore. Un’unica chiave universale funziona per tutti, per la porta della piscina, i bagni della piscina e per i bidoni dell’indifferenziata di fronte, dall’altra parte della strada.</div>
       </div>
       <div class="row">
-        <div class="k">Odpadky</div>
-        <div class="v"><strong>Směsný odpad:</strong> naproti přes ulici (zelená brána před Malibu Park Hotelem). <strong>Tříděný odpad:</strong> hned naproti. Prosíme, nenechávejte jídlo na terasé — přitahuje hmyz.</div>
+        <div class="k">Rifiuti</div>
+        <div class="v"><strong>Indifferenziato:</strong> di fronte, dall’altra parte della strada (cancello verde davanti al Malibu Park Hotel). <strong>Raccolta differenziata:</strong> proprio di fronte. Vi preghiamo di non lasciare cibo sulla terrazza — attira gli insetti.</div>
       </div>
       <div class="row">
-        <div class="k">Pitná voda</div>
-        <div class="v">Filtrovaná voda je k dispozici v přízemí budovy za <span class="mono">1 € / 5 l</span>. Prosíme, do spotřebičů (kávovar, konvice) používejte výhradně filtrovanou vodu.</div>
+        <div class="k">Acqua potabile</div>
+        <div class="v">L’acqua filtrata è disponibile al piano terra dell’edificio a <span class="mono">1 € / 5 l</span>. Vi preghiamo di usare esclusivamente acqua filtrata negli elettrodomestici (macchina del caffè, bollitore).</div>
       </div>
       <div class="row">
-        <div class="k">Bazén</div>
-        <div class="v">Na střeše komplexu. K dispozici jsou lehátka, slunečníky a toalety pro hosty. Dostanete se tam schodištěm, výtahem (+ pár schodů) nebo bezbariérovým bočním vchodem.</div>
+        <div class="k">Piscina</div>
+        <div class="v">Sul tetto del complesso. Sono disponibili lettini, ombrelloni e bagni per gli ospiti. Potete raggiungerla tramite le scale, l’ascensore (+ pochi scalini) o l’ingresso laterale senza barriere.</div>
       </div>
       <div class="row">
-        <div class="k">Noční klid</div>
-        <div class="v">Od <strong>23:00 do 9:00</strong> prosíme o klid — náš komplex je rodinný a tichý. Oslavy a večírky bohužel nejsou možné. Děkujeme, že respektujete ostatní hosty a sousedy. 🙏</div>
+        <div class="k">Silenzio notturno</div>
+        <div class="v">Dalle <strong>23:00 alle 9:00</strong> vi chiediamo di mantenere il silenzio — il nostro complesso è familiare e tranquillo. Feste e party purtroppo non sono ammessi. Grazie per il rispetto degli altri ospiti e dei vicini. 🙏</div>
       </div>
     </div>
   </section>
@@ -767,32 +761,32 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </div>
       <span class="idx">03</span>
-      <h2>Důležitá čísla</h2>
+      <h2>Numeri importanti</h2>
     </div>
 
     <div class="emergency-grid">
       <div class="emg big">
-        <span class="lbl">SOS — vše</span>
+        <span class="lbl">SOS — tutto</span>
         <span class="num">112</span>
-        <span class="sub">tísňová linka</span>
+        <span class="sub">numero d’emergenza</span>
       </div>
       <div class="emg">
-        <span class="lbl">Policie</span>
+        <span class="lbl">Polizia</span>
         <span class="num">091</span>
         <span class="sub">Policía Nacional</span>
       </div>
       <div class="emg">
-        <span class="lbl">Četnictvo</span>
+        <span class="lbl">Gendarmeria</span>
         <span class="num">062</span>
         <span class="sub">Guardia Civil</span>
       </div>
       <div class="emg">
-        <span class="lbl">Záchranka</span>
+        <span class="lbl">Ambulanza</span>
         <span class="num">061</span>
         <span class="sub">Ambulance</span>
       </div>
       <div class="emg">
-        <span class="lbl">Hasiči</span>
+        <span class="lbl">Vigili del fuoco</span>
         <span class="num">080</span>
         <span class="sub">Bomberos</span>
       </div>
@@ -800,23 +794,23 @@
 
     <div class="tel-grid" style="margin-top: 20px;">
       <div class="tel-row">
-        <div class="name">Taxi Costa Adeje<small>24 h servis · taxiadeje.com</small></div>
+        <div class="name">Taxi Costa Adeje<small>servizio 24 h · taxiadeje.com</small></div>
         <a class="num" href="tel:+34922979293">922 979 293</a>
       </div>
       <div class="tel-row">
-        <div class="name">Hospital Las Américas<small>nejbližší nemocnice</small></div>
+        <div class="name">Hospital Las Américas<small>ospedale più vicino</small></div>
         <a class="num" href="tel:+34922750022">922 750 022</a>
       </div>
       <div class="tel-row">
-        <div class="name">Letiště TFS (jih)<small>Reina Sofía</small></div>
+        <div class="name">Aeroporto TFS (sud)<small>Reina Sofía</small></div>
         <a class="num" href="tel:+34922759000">922 759 000</a>
       </div>
       <div class="tel-row">
-        <div class="name">Autobusy TITSA<small>veřejná doprava</small></div>
+        <div class="name">Autobus TITSA<small>trasporto pubblico</small></div>
         <a class="num" href="tel:+34922531300">922 531 300</a>
       </div>
     </div>
-    <p style="font-size: 12px; color: var(--ink-soft); margin-top: 12px;">Předvolba pro Španělsko: <span class="mono">+34</span>.</p>
+    <p style="font-size: 12px; color: var(--ink-soft); margin-top: 12px;">Prefisso per la Spagna: <span class="mono">+34</span>.</p>
   </section>
 
   <!-- TRANSPORT -->
@@ -826,21 +820,21 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l1-4h12l1 4h2"/><path d="M5 17a2 2 0 1 0 4 0"/><path d="M15 17a2 2 0 1 0 4 0"/><path d="M6 13V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6"/></svg>
       </div>
       <span class="idx">04</span>
-      <h2>Jak se pohybovat po Tenerife</h2>
+      <h2>Come spostarsi a Tenerife</h2>
     </div>
 
     <div class="kv card" style="padding: 8px 24px;">
       <div class="row">
         <div class="k">Taxi / auto</div>
-        <div class="v">Taxík i půjčovnu aut najdete přímo na letišti. U apartmánu je dostatek parkovacích míst na ulici zdarma. <strong>Neparkujte prosím na chodníku</strong> — hrozí odtažení vozidla a pokuta.</div>
+        <div class="v">Taxi e autonoleggio si trovano direttamente in aeroporto. Vicino all’appartamento ci sono molti parcheggi gratuiti su strada. <strong>Vi preghiamo di non parcheggiare sul marciapiede</strong> — rischiate la rimozione del veicolo e una multa.</div>
       </div>
       <div class="row">
         <div class="k">Autobus</div>
-        <div class="v">Zastávka <span class="mono">Av. de los Pueblos</span> je 15 min pěšky. Linky TITSA spolehlivě fungují po celém ostrově včetně letiště a hlavního města. Velké zavazadlo můžete zdarma dát do zavazadlového prostoru. Užitečná aplikace: <a class="mono" href="https://maps.google.com/" target="_blank" rel="noopener">Google Maps</a>.</div>
+        <div class="v">La fermata <span class="mono">Av. de los Pueblos</span> è a 15 min a piedi. Le linee TITSA funzionano in modo affidabile in tutta l’isola, incluso l’aeroporto e la capitale. I bagagli grandi possono essere riposti gratuitamente nel vano bagagli. App utile: <a class="mono" href="https://maps.google.com/" target="_blank" rel="noopener">Google Maps</a>.</div>
       </div>
       <div class="row">
-        <div class="k">Kola, koloběžky, skútry</div>
-        <div class="v">V okolí najdete několik půjčoven kol, motorek i elektrických vozítek. Před komplexem je stanice sdílených elektrokoloběžek.</div>
+        <div class="k">Bici, monopattini, scooter</div>
+        <div class="v">Nei dintorni troverete diversi noleggi di biciclette, motociclette e veicoli elettrici. Davanti al complesso c’è una stazione di monopattini elettrici in condivisione.</div>
       </div>
     </div>
   </section>
@@ -852,25 +846,25 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
       <span class="idx">05</span>
-      <h2>V okolí — naše tipy</h2>
+      <h2>Nei dintorni — i nostri consigli</h2>
     </div>
 
-    <p style="color: var(--ink-mute); font-size: 14px; max-width: 60ch; margin-bottom: 24px;">Kliknutím na kterýkoliv tip se otevře místo přímo v Mapách Google.</p>
+    <p style="color: var(--ink-mute); font-size: 14px; max-width: 60ch; margin-bottom: 24px;">Cliccando su uno qualsiasi dei consigli si aprirà il luogo direttamente in Google Maps.</p>
 
     <div class="nearby-grid">
 
       <div class="nearby-card">
         <h3>
           <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18l-2 9H5z"/><path d="m5 12 1 8h12l1-8"/></svg></span>
-          Obchody &amp; supermarkety
+          Negozi &amp; supermercati
         </h3>
         <ul class="link-list">
-          <li><a href="https://www.google.com/maps/search/Mercadona+Costa+Adeje" target="_blank" rel="noopener"><span>Mercadona <span class="sub">španělský</span></span><span class="arrow">→</span></a></li>
-          <li><a href="https://www.google.com/maps/search/Hiperdino+Costa+Adeje" target="_blank" rel="noopener"><span>Hiperdino <span class="sub">kanárský</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Mercadona+Costa+Adeje" target="_blank" rel="noopener"><span>Mercadona <span class="sub">spagnolo</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Hiperdino+Costa+Adeje" target="_blank" rel="noopener"><span>Hiperdino <span class="sub">canario</span></span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/SuperDino+Malibu+Avenida+Austria+Costa+Adeje" target="_blank" rel="noopener"><span>SuperDino Malibu</span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/Dialprix+Costa+Adeje" target="_blank" rel="noopener"><span>Dialprix</span><span class="arrow">→</span></a></li>
-          <li><a href="https://www.google.com/maps/search/Overseas+British+supermarket+Costa+Adeje" target="_blank" rel="noopener"><span>Overseas <span class="sub">britský</span></span><span class="arrow">→</span></a></li>
-          <li><a href="https://www.google.com/maps/search/Farm+fruit+vegetables+Costa+Adeje" target="_blank" rel="noopener"><span>Farma <span class="sub">ovoce, zelenina, sýry</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Overseas+British+supermarket+Costa+Adeje" target="_blank" rel="noopener"><span>Overseas <span class="sub">britannico</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Farm+fruit+vegetables+Costa+Adeje" target="_blank" rel="noopener"><span>Farma <span class="sub">frutta, verdura, formaggi</span></span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/Siam+Mall+Costa+Adeje" target="_blank" rel="noopener"><span>Siam Mall</span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/Centro+Comercial+X-Sur+Costa+Adeje" target="_blank" rel="noopener"><span>C.C. X-Sur</span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/Plaza+del+Duque+Costa+Adeje" target="_blank" rel="noopener"><span>Plaza del Duque</span><span class="arrow">→</span></a></li>
@@ -880,10 +874,10 @@
       <div class="nearby-card">
         <h3>
           <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18"/><path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M5 11v4a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-4"/><path d="M12 19v3"/></svg></span>
-          Restaurace &amp; kavárny
+          Ristoranti &amp; caffè
         </h3>
         <ul class="link-list">
-          <li><a href="https://www.google.com/maps/search/Pal+Choso+Guanchiche+Costa+Adeje" target="_blank" rel="noopener"><span>Pal Choso Guanchiche <span class="sub">kanárská kuchyně</span></span><span class="arrow">→</span></a></li>
+          <li><a href="https://www.google.com/maps/search/Pal+Choso+Guanchiche+Costa+Adeje" target="_blank" rel="noopener"><span>Pal Choso Guanchiche <span class="sub">cucina canaria</span></span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/Roys+Pizza+Indian+Costa+Adeje" target="_blank" rel="noopener"><span>Roy's Pizza &amp; Indian</span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/El+Molino+Blanco+Costa+Adeje" target="_blank" rel="noopener"><span>El Molino Blanco</span><span class="arrow">→</span></a></li>
           <li><a href="https://www.google.com/maps/search/Craft+Burger+Beer+Bar+Costa+Adeje" target="_blank" rel="noopener"><span>Craft Burger &amp; Beer Bar</span><span class="arrow">→</span></a></li>
@@ -895,7 +889,7 @@
       <div class="nearby-card">
         <h3>
           <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 22c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><circle cx="8" cy="8" r="3"/></svg></span>
-          Pláže
+          Spiagge
         </h3>
         <ul class="link-list">
           <li><a href="https://www.google.com/maps/search/Playa+La+Pinta+Puerto+Colon" target="_blank" rel="noopener"><span>La Pinta / Puerto Colón</span><span class="dist">950 m</span></a></li>
@@ -913,7 +907,7 @@
       <div class="nearby-card">
         <h3>
           <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21v-4a5 5 0 0 1 10 0v4"/><path d="M5 21h14"/><circle cx="12" cy="8" r="3"/><path d="M12 5V2"/></svg></span>
-          Beach kluby
+          Beach club
         </h3>
         <ul class="link-list">
           <li><a href="https://www.google.com/maps/search/Kaluna+Beach+Club+Costa+Adeje" target="_blank" rel="noopener"><span>Kaluna Beach Club</span><span class="arrow">→</span></a></li>
@@ -929,7 +923,7 @@
       <div class="nearby-card" style="grid-column: 1 / -1;">
         <h3>
           <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c3-8 7-8 9 0"/><path d="M12 18c2-6 6-6 9 0"/><path d="M3 22h18"/></svg></span>
-          Aquaparky
+          Acquapark
         </h3>
         <ul class="link-list" style="grid-template-columns: 1fr 1fr; display: grid; gap: 0 20px;">
           <li><a href="https://www.google.com/maps/search/Aqualand+Costa+Adeje" target="_blank" rel="noopener"><span>Aqualand</span><span class="dist">250 m</span></a></li>
@@ -947,35 +941,35 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M9 21V12h6v9"/></svg>
       </div>
       <span class="idx">06</span>
-      <h2>V apartmánu</h2>
+      <h2>Nell’appartamento</h2>
     </div>
 
     <div class="kv card" style="padding: 8px 24px;">
       <div class="row">
-        <div class="k">Kuchyně</div>
+        <div class="k">Cucina</div>
         <div class="v">
-          <p>K dispozici máte plně vybavenou kuchyň: sporák, troubu, mikrovlnku, kávovar, konvici, toustovač, gril, odšťavňovač, indukční přenosnou plotýnku, paella pánev a kompletní nádobí.</p>
-          <p style="color: var(--ink-mute); font-size: 13px;">Podsvícení v kuchyni zapnete posuvným vypínačem na digestoři.</p>
+          <p>Avete a disposizione una cucina completamente attrezzata: piano cottura, forno, microonde, macchina del caffè, bollitore, tostapane, grill, spremiagrumi, piastra a induzione portatile, padella per paella e stoviglie complete.</p>
+          <p style="color: var(--ink-mute); font-size: 13px;">L’illuminazione della cucina si accende con l’interruttore scorrevole sulla cappa.</p>
         </div>
       </div>
       <div class="row">
-        <div class="k">Ventilátor</div>
-        <div class="v">Zapíná se vypínačem na zdi a potvrzením na dálkovém ovladači. Tlačítkem na ovladači zapnete i světlo.</div>
+        <div class="k">Ventilatore</div>
+        <div class="v">Si accende con l’interruttore a parete e la conferma sul telecomando. Con un tasto sul telecomando si accende anche la luce.</div>
       </div>
       <div class="row">
         <div class="k">Smart TV</div>
-        <div class="v">Připojíte si vlastní streamovací služby a k dispozici je i aplikace Skylink.</div>
+        <div class="v">Potete collegare i vostri servizi di streaming ed è disponibile anche l’app Skylink.</div>
       </div>
       <div class="row">
-        <div class="k">Pračka</div>
-        <div class="v">Pračku najdete v koupelně. Prací prostředek je připravený — klidně použijte. 👕</div>
+        <div class="k">Lavatrice</div>
+        <div class="v">La lavatrice si trova in bagno. Il detersivo è pronto — usatelo pure. 👕</div>
       </div>
       <div class="row">
-        <div class="k">Terasa</div>
+        <div class="k">Terrazza</div>
         <div class="v">
-          <p>Rostliny se zavlažují automaticky. Lehátka jsou ve skříni.</p>
-          <p><strong>Slunečník</strong> prosím vždy zavřete, když opouštíte apartmán — vítr zde umí překvapit a slunečník by se mohl převrhnout.</p>
-          <p style="color: var(--ink-mute); font-size: 13px;">Bezpečnostní kamera na terase je aktivní pouze mimo pobyt hostů — během vašeho pobytu je automaticky vypnutá a můžete ji navíc zakrýt okenicí.</p>
+          <p>Le piante vengono irrigate automaticamente. I lettini sono nell’armadio.</p>
+          <p>Vi preghiamo di chiudere sempre l’<strong>ombrellone</strong> quando lasciate l’appartamento — il vento qui può sorprendere e l’ombrellone potrebbe rovesciarsi.</p>
+          <p style="color: var(--ink-mute); font-size: 13px;">La telecamera di sicurezza sulla terrazza è attiva solo al di fuori del soggiorno degli ospiti — durante il vostro soggiorno è automaticamente spenta e potete inoltre coprirla con la persiana.</p>
         </div>
       </div>
     </div>
@@ -993,24 +987,24 @@
 
     <div class="kv card" style="padding: 20px 24px;">
       <div class="row">
-        <div class="k">Spotřebiče</div>
-        <div class="v">Prosíme odpojte z elektřiny (kávovar, rychlovarná konvice…).</div>
+        <div class="k">Elettrodomestici</div>
+        <div class="v">Vi preghiamo di scollegare dalla corrente (macchina del caffè, bollitore…).</div>
       </div>
       <div class="row">
-        <div class="k">Odpadky</div>
-        <div class="v">Vyneste prosím před odjezdem.</div>
+        <div class="k">Rifiuti</div>
+        <div class="v">Vi preghiamo di portarli fuori prima della partenza.</div>
       </div>
       <div class="row">
-        <div class="k">Slunečník &amp; markýza</div>
-        <div class="v">Pokud jste je během pobytu používali, prosíme zavřete slunečník i markýzu — vítr zde umí zesílit a mohlo by dojít k poškození.</div>
+        <div class="k">Ombrellone &amp; tenda</div>
+        <div class="v">Se li avete usati durante il soggiorno, vi preghiamo di chiudere ombrellone e tenda da sole — il vento qui può rinforzare e potrebbero danneggiarsi.</div>
       </div>
       <div class="row">
-        <div class="k">Klíče</div>
-        <div class="v">Obě sady nechte v apartmánu, dveře za sebou zabouchněte.</div>
+        <div class="k">Chiavi</div>
+        <div class="v">Lasciate entrambi i set nell’appartamento e chiudete la porta dietro di voi.</div>
       </div>
       <div class="row">
-        <div class="k">Něco se rozbilo?</div>
-        <div class="v">Nic se neděje — jen nám to prosím dejte vědět, ať to stihneme spravit pro další hosty. Díky! 🙏</div>
+        <div class="k">Qualcosa si è rotto?</div>
+        <div class="v">Non è un problema — fatecelo solo sapere, così possiamo ripararlo in tempo per gli ospiti successivi. Grazie! 🙏</div>
       </div>
     </div>
   </section>
@@ -1018,12 +1012,12 @@
   <!-- FOOTER -->
   <footer class="foot">
     <div>Island Village Heights — Apt. 522 A</div>
-    <div>Hezkou dovolenou · Helena &amp; Michal</div>
+    <div>Buone vacanze · Helena &amp; Michal</div>
   </footer>
 
 </div>
 
-<div class="toast" id="toast">Zkopírováno</div>
+<div class="toast" id="toast">Copiato</div>
 
 <script>
   // Copy-to-clipboard
@@ -1035,14 +1029,14 @@
       try {
         await navigator.clipboard.writeText(text);
         btn.classList.add('copied');
-        btn.textContent = 'Zkopírováno';
-        showToast('Zkopírováno: ' + text);
+        btn.textContent = 'Copiato';
+        showToast('Copiato: ' + text);
         setTimeout(() => {
           btn.classList.remove('copied');
-          btn.textContent = 'Kopírovat';
+          btn.textContent = 'Copia';
         }, 1800);
       } catch (e) {
-        showToast('Nepodařilo se zkopírovat');
+        showToast('Copia non riuscita');
       }
     });
   });
@@ -1055,13 +1049,6 @@
     showToast._t = setTimeout(() => toast.classList.remove('show'), 1600);
   }
 </script>
-
-
-<!-- Vercel Analytics -->
-<script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>
